@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% if problems %}
+        <div class="page">
+            <ol class="problems {% if layout %} layout--{{ layout }} {% endif %}">
+                {% for problem in problems %}
+                <li class="problem problem--{{ problem.operation }}">
+                    {% for digit in problem.digits %}
+                        <span class="digit">{{ digit }}</span>
+                        {% if not loop.last %}
+                            <span class="symbol">{{ problem.symbol_html_entity }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    <span class="equals">&equals;</span>
+                    <span class="answer">{{ problem.answer }}</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+{% endblock %}

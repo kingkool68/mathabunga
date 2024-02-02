@@ -1,0 +1,75 @@
+body {
+    background-color: $dark-gray;
+    print-color-adjust: exact !important;
+}
+
+.page {
+    background-color: $white;
+    margin: 0 auto;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.5in 1in;
+}
+
+.problems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    column-gap: 0.5in;
+    height: 100%;
+}
+
+.problem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.digit {
+    min-width: 2ch;
+    text-align: center;
+}
+
+.symbol {}
+
+.equals {}
+
+.answer {
+    min-width: 2ch;
+}
+
+.layout--vertical {
+    height: auto;
+    grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));
+    column-gap: 4ch;
+    row-gap: 2ch;
+
+    .problem {
+        flex-direction: column;
+    }
+
+    .digit,
+    .answer {
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    .symbol {
+        position: relative;
+        text-align: right;
+        left: -0.2ch;
+    }
+
+    .symbol+.digit {
+        margin-top: -1.5ch;
+    }
+
+    .equals {
+        border-top: rem(1px) solid $black;
+        color: transparent;
+        display: block;
+        margin-top: 0.5ch;
+        font-size: rem(2px);
+        width: 100%;
+    }
+}

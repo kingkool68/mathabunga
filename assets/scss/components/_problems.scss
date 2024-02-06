@@ -38,13 +38,13 @@ body {
 }
 
 .layout--vertical {
-    height: auto;
+    height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));
     column-gap: 4ch;
-    row-gap: 2ch;
 
     .problem {
         flex-direction: column;
+        justify-content: flex-start;
     }
 
     .digit,

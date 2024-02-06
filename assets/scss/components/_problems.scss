@@ -58,6 +58,14 @@ body {
         position: relative;
         text-align: right;
         left: -0.2ch;
+
+        &.offset-2-chars {
+            left: -1ch;
+        }
+
+        &.offset-3-chars {
+            left: -2ch;
+        }
     }
 
     .symbol+.digit {

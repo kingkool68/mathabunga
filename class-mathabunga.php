@@ -35,10 +35,10 @@ class Mathabunga {
 	public static function get_problems( $args = array() ) {
 		$defaults = array(
 			'operations'         => array(
-				'addition',
-				'subtraction',
-				'multiplication',
-				'division',
+				'addition'       => array(),
+				'subtraction'    => array(),
+				'multiplication' => array(),
+				'division'       => array(),
 			),
 			'number_of_problems' => 10,
 		);
@@ -47,9 +47,12 @@ class Mathabunga {
 		if ( empty( $args['operations'] ) ) {
 			return $output;
 		}
+		$operations = array_keys( $args['operations'] );
 		while ( $args['number_of_problems'] > 0 ) {
-			$operation = static::get_random_operation( $args['operations'] );
-			$output[]  = call_user_func_array( $operation->callback, array() );
+			$operation      = static::get_random_operation( $operations );
+			$operation_args = $args['operations'][ $operation->name ];
+			$operation_args = array( 'args' => $operation_args );
+			$output[]       = call_user_func_array( $operation->callback, $operation_args );
 			--$args['number_of_problems'];
 		}
 		return $output;

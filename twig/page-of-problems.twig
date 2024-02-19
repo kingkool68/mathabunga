@@ -1,0 +1,9 @@
+<section class="page">
+	<ol class="problems {% if layout %} layout--{{ layout }} {% endif %}">
+		{% for problem in rendered_problems %}
+			<li class="problem">
+				{{ problem }}
+			</li>
+		{% endfor %}
+	</ol>
+</section>

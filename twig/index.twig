@@ -1,23 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    {% if problems %}
-        <div class="page">
-            <ol class="problems {% if layout %} layout--{{ layout }} {% endif %}">
-                {% for problem in problems %}
-                <li class="problem problem--{{ problem.operation }}">
-                    {% for index,digit in problem.digits %}
-                        {% set next_digit = problem.digits[index+1] %}
-                        <span class="digit">{{ digit }}</span>
-                        {% if not loop.last %}
-                            <span class="symbol offset-{{ next_digit|length }}-chars">{{ problem.symbol_html_entity }}</span>
-                        {% endif %}
-                    {% endfor %}
-                    <span class="equals">&equals;</span>
-                    <span class="answer">{{ problem.answer|number_format }}</span>
-                </li>
-                {% endfor %}
-            </ol>
-        </div>
-    {% endif %}
+    {% for page in pages %}
+        {{ page }}
+    {% endfor %}
 {% endblock %}

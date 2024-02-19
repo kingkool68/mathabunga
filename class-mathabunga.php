@@ -27,6 +27,57 @@ class Mathabunga {
 		return $instance;
 	}
 
+	public static function render_pages( $args = array() ) {
+		$defaults = array(
+			'problems'              => array(),
+			'layout'                => 'vertical',
+			'max_problems_per_page' => null,
+		);
+		$args     = array_merge( $defaults, $args );
+		if ( empty( $args['max_problems_per_page'] ) ) {
+			$args['max_problems_per_page'] = 90;
+			if ( $args['layout'] === 'horiztonal' ) {
+				$args['max_problems_per_page'] = 120;
+			}
+		}
+		$output = array();
+		$chunks = array_chunk( $args['problems'], $args['max_problems_per_page'] );
+		foreach ( $chunks as $problems ) {
+			$output[] = static::render_page(
+				array(
+					'problems' => $problems,
+					'layout'   => $args['layout'],
+				)
+			);
+		}
+
+		return $output;
+	}
+
+	public static function render_page( $args = array() ) {
+		$defaults = array(
+			'problems' => array(),
+			'layout'   => 'vertical',
+		);
+		$context  = array_merge( $defaults, $args );
+		foreach ( $context['problems'] as $problem ) {
+			$context['rendered_problems'][] = static::render_problem( (array) $problem );
+		}
+		return Twig::render( 'page-of-problems.twig', $context );
+	}
+
+	public static function render_problem( $args = array() ) {
+		$defaults = array(
+			'digits'             => array(),
+			'operation'          => '',
+			'symbol'             => '',
+			'symbol_html_entity' => '',
+			'answer'             => 0,
+		);
+		$context  = array_merge( $defaults, $args );
+		return Twig::render( 'problem.twig', $context );
+	}
+
 	/**
 	 * Get a list of randomly generated math problems
 	 *

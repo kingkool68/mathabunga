@@ -1,0 +1,17 @@
+{% for index,digit in digits %}
+    {% set next_digit = digits[index+1] %}
+    <span class="digit">
+        {{ digit }}
+    </span>
+    {% if not loop.last %}
+        <span class="symbol offset-{{ next_digit|length }}-chars">
+            {{ symbol_html_entity }}
+        </span>
+    {% endif %}
+{% endfor %}
+<span class="equals">
+    &equals;
+</span>
+<span class="answer">
+    {{ answer|number_format }}
+</span>

@@ -1,0 +1,14 @@
+.main-content {
+    display: flex;
+    // flex-direction: row-reverse;
+
+    main {
+        margin: auto;
+    }
+
+    aside {
+        background-color: #ededed;
+        width: rem(320px);
+        min-height: 100vh;
+    }
+}

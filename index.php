@@ -15,7 +15,7 @@ $problems = Mathabunga::get_problems(
 				'max' => 12,
 			),
 		),
-		'number_of_problems' => 1200,
+		'number_of_problems' => 55,
 	)
 );
 

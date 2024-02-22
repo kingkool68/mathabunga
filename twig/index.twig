@@ -5,3 +5,38 @@
         {{ page }}
     {% endfor %}
 {% endblock %}
+
+{% block after_content %}
+	<aside>
+        <form method="GET" class="worksheet-options">
+            <fieldset>
+                <legend>General</legend>
+
+                <label>Number of problems</label>
+                <input type="number" min="1">
+
+                <label for="problem-layout">Equation Layout</label>
+                <select name="problem-layout" id="problem-layout">
+                    <option value="vertical">Vertical</option>
+                    <option value="horizontal">Horizontal</option>
+                </select>
+
+                <label>
+                    <input type="checkbox" name="show-answers">
+                    Show answers
+                </label>
+            </fieldset>
+
+                <fieldset>
+                    <legend>Addition</legend>
+                    <label>Min</label>
+                    <input type="number" name="addition[min]" placeholder="Min">
+                    <label>Max</label>
+                    <input type="number" name="addition[max]" placeholder="Max">
+                    <label>Number of digits to add</label>
+                    <input type="number" min="2" max="10">
+                </fieldset>
+            <button class="submit">Generate</button>
+        </form>
+    </aside>
+{% endblock %}

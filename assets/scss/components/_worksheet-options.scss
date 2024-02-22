@@ -1,0 +1,23 @@
+.worksheet-options {
+    padding: rem(32px);
+
+    fieldset {
+        padding: rem(16px) 0;
+    }
+
+    legend {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: rem(12px);
+    }
+
+    select {
+        display: block;
+    }
+
+    .submit {
+        display: block;
+        margin: rem(16px) 0;
+        width: 100%;
+    }
+}

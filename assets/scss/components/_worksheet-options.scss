@@ -2,7 +2,7 @@
     padding: rem(32px);
 
     fieldset {
-        padding: rem(16px) 0;
+        padding: rem(8px) 0;
     }
 
     legend {
@@ -11,8 +11,27 @@
         font-size: rem(12px);
     }
 
+    label {
+        display: block;
+        margin-bottom: rem(4px);
+    }
+
     select {
         display: block;
+        // width: 100%;
+    }
+
+    .field {
+        padding: 0 rem(8px) rem(16px);
+    }
+
+    .group {
+        display: flex;
+        gap: rem(16px);
+    }
+
+    .small-input {
+        width: 6ch;
     }
 
     .submit {

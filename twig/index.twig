@@ -1,42 +1,79 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    {% for page in pages %}
-        {{ page }}
-    {% endfor %}
+	{% for page in pages %}
+		{{ page }}
+	{% endfor %}
 {% endblock %}
 
 {% block after_content %}
 	<aside>
-        <form method="GET" class="worksheet-options">
-            <fieldset>
-                <legend>General</legend>
+		<form method="GET" class="worksheet-options">
+			<fieldset>
+				<legend>
+					General
+				</legend>
+				<ol class="fields">
+					<li class="field">
+						<label for="number-of-problems">
+							Number of problems
+						</label>
+						<input type="number" name="number-of-problems" id="number-of-problems" min="1" class="small-input">
+					</li>
 
-                <label>Number of problems</label>
-                <input type="number" min="1">
+					<li class="field">
+						<label for="problem-layout">
+							Equation Layout
+						</label>
+						<select name="problem-layout" id="problem-layout">
+							<option value="vertical">
+								Vertical
+							</option>
+							<option value="horizontal">
+								Horizontal
+							</option>
+						</select>
+					</li>
+					<li class="field">
+						<label>
+							<input type="checkbox" name="show-answers" value="true">
+							Show answers
+						</label>
+					</li>
+				</ol>
+			</fieldset>
 
-                <label for="problem-layout">Equation Layout</label>
-                <select name="problem-layout" id="problem-layout">
-                    <option value="vertical">Vertical</option>
-                    <option value="horizontal">Horizontal</option>
-                </select>
+			<fieldset>
+				<legend>
+					Addition
+				</legend>
+				<ol class="fields">
+					<li class="field group">
+						<div class="item">
+							<label for="addition-min">
+								Min
+							</label>
+							<input type="number" name="addition[min]" id="addition-min" class="small-input">
+						</div>
+						<div class="item">
+							<label for="addition-max">
+								Max
+							</label>
+							<input type="number" name="addition[max]" id="addition-max" class="small-input">
+						</div>
+					</li>
+					<li class="field">
+						<label for="addition-numbers">
+							Number of digits to add
+						</label>
+						<input type="number" name="addition[numbers]" id="addition-numbers" min="2" max="9" class="small-input">
+					</li>
+				</ol>
+			</fieldset>
 
-                <label>
-                    <input type="checkbox" name="show-answers">
-                    Show answers
-                </label>
-            </fieldset>
-
-                <fieldset>
-                    <legend>Addition</legend>
-                    <label>Min</label>
-                    <input type="number" name="addition[min]" placeholder="Min">
-                    <label>Max</label>
-                    <input type="number" name="addition[max]" placeholder="Max">
-                    <label>Number of digits to add</label>
-                    <input type="number" min="2" max="10">
-                </fieldset>
-            <button class="submit">Generate</button>
-        </form>
-    </aside>
+			<button class="submit">
+				Generate
+			</button>
+		</form>
+	</aside>
 {% endblock %}

@@ -7,11 +7,7 @@
 	<description>A custom set of code standard rules to check for WordPress themes.</description>
 
 	<file>.</file>
-	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
-	<exclude-pattern>lib/*</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
-	<exclude-pattern>*.css</exclude-pattern>
 
 	<!-- Include the WordPress ruleset, with exclusions. -->
 	<rule ref="WordPress">
@@ -27,6 +23,8 @@
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
 		<!-- Any kind of formatting for hook names is fine -->
 		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
+		<exclude name="WordPress.WP.AlternativeFunctions.rand_rand"/>
+		<exclude name="WordPress.Security.NonceVerification"/>
 		<!-- I don't think in Yoda speak. See https://github.com/humanmade/WordPress-Importer/blob/7fa0a24c12818e60f70d73293b79a277e742b2f1/phpcs.ruleset.xml#L25-L44 -->
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>

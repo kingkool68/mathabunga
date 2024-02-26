@@ -1,0 +1,96 @@
+<form method="GET" class="worksheet-options">
+	<fieldset>
+		<legend>
+			General
+		</legend>
+		<ol class="fields">
+			<li class="field">
+				<label for="number-of-problems">
+					Number of problems
+				</label>
+				<input type="number" name="number-of-problems" id="number-of-problems" min="1" class="small-input" value="{{ number_of_problems|e('html_attr') }}">
+			</li>
+
+			<li class="field">
+				<label for="problem-layout">
+					Equation Layout
+				</label>
+				<select name="problem-layout" id="problem-layout">
+					<option value="vertical" {% if problem_layout == 'vertical' %} selected {% endif %}>
+						Vertical
+					</option>
+					<option value="horizontal" {% if problem_layout == 'horizontal' %} selected {% endif %}>
+						Horizontal
+					</option>
+				</select>
+			</li>
+			<li class="field">
+				<label>
+					<input type="checkbox" name="show-answers" value="true">
+					Show answers
+				</label>
+			</li>
+		</ol>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Addition
+		</legend>
+		<ol class="fields">
+			<li class="field group">
+				<div class="item">
+					<label for="addition-min">
+						Min
+					</label>
+					<input type="number" name="addition[min]" id="addition-min" class="small-input" value="{{ operations.addition.min|e('html_attr') }}">
+				</div>
+				<div class="item">
+					<label for="addition-max">
+						Max
+					</label>
+					<input type="number" name="addition[max]" id="addition-max" class="small-input" value="{{ operations.addition.max|e('html_attr') }}">
+				</div>
+			</li>
+			<li class="field">
+				<label for="addition-numbers">
+					Number of digits to add
+				</label>
+				<input type="number" name="addition[numbers]" id="addition-numbers" min="2" max="9" class="small-input" value="{{ operations.addition.numbers|e('html_attr') }}">
+			</li>
+		</ol>
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			Subtraction
+		</legend>
+		<ol class="fields">
+			<li class="field group">
+				<div class="item">
+					<label for="subtraction-min">
+						Min
+					</label>
+					<input type="number" name="subtraction[min]" id="subtraction-min" class="small-input" value="{{ operations.subtraction.min|e('html_attr') }}">
+				</div>
+				<div class="item">
+					<label for="subtraction-max">
+						Max
+					</label>
+					<input type="number" name="subtraction[max]" id="subtraction-max" class="small-input" value="{{ operations.subtraction.max|e('html_attr') }}">
+				</div>
+			</li>
+			<li class="field">
+				<label for="subtraction-numbers">
+					Number of digits to subtract
+				</label>
+				<input type="number" name="subtraction[numbers]" id="subtraction-numbers" min="2" max="9" class="small-input" value="{{ operations.subtraction.numbers|e('html_attr') }}">
+			</li>
+		</ol>
+	</fieldset>
+
+
+	<button class="submit">
+		Generate
+	</button>
+</form>

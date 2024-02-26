@@ -3,28 +3,17 @@ require_once 'vendor/autoload.php';
 require_once 'class-mathabunga.php';
 require_once 'class-twig.php';
 
-$problems = Mathabunga::get_problems(
-	array(
-		'operations'         => array(
-			'addition'    => array(
-				'min' => 1,
-				'max' => 12,
-			),
-			'subtraction' => array(
-				'min' => 1,
-				'max' => 12,
-			),
-		),
-		'number_of_problems' => 55,
-	)
-);
+$problem_args = Mathabunga::get_problems_args_from_get_request();
+$problems     = Mathabunga::get_problems( $problem_args );
+
 
 $context = array(
-	'pages' => Mathabunga::render_pages(
+	'pages'             => Mathabunga::render_pages(
 		array(
 			'problems' => $problems,
-			'layout'   => 'vertical',
+			'layout'   => $problem_args['problem_layout'],
 		)
 	),
+	'worksheet_options' => Mathabunga::render_worksheet_options( $problem_args ),
 );
 Twig::out( 'index.twig', $context );

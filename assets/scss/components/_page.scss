@@ -1,11 +1,13 @@
-.page {
-    background-color: $white;
-    margin: 0 auto;
-    width: 8.5in;
-    height: 11in;
-    padding: 0.5in 1in;
+@use "base/_imports.scss" as *;
 
-    & + .page {
-        margin-top: 0.25in;
-    }
+.page {
+	background-color: $white;
+	margin: 0 auto;
+	width: 8.5in;
+	height: 11in;
+	padding: 0.5in 1in;
+
+	& + .page {
+		margin-top: 0.25in;
+	}
 }

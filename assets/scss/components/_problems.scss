@@ -1,70 +1,74 @@
+@use "base/_imports.scss" as *;
+
 .problems {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    column-gap: 0.5in;
-    height: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	column-gap: 0.5in;
+	height: 100%;
 }
 
 .problem {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .digit {
-    min-width: 2ch;
-    text-align: center;
+	min-width: 2ch;
+	text-align: center;
 }
 
-.symbol {}
+.symbol {
+}
 
-.equals {}
+.equals {
+}
 
 .answer {
-    min-width: 2ch;
+	min-width: 2ch;
 }
 
 .layout--vertical {
-    height: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));
-    column-gap: 4ch;
+	height: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));
+	column-gap: 4ch;
 
-    .problem {
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+	.problem {
+		flex-direction: column;
+		justify-content: flex-start;
+	}
 
-    .digit,
-    .answer {
-        display: block;
-        width: 100%;
-        text-align: right;
-    }
+	.digit,
+	.answer {
+		display: block;
+		width: 100%;
+		text-align: right;
+	}
 
-    .symbol {
-        position: relative;
-        text-align: right;
-        left: -0.2ch;
+	.symbol {
+		position: relative;
+		text-align: right;
+		left: -0.2ch;
 
-        &.offset-2-chars {
-            left: -1ch;
-        }
+		&.offset-2-chars {
+			left: -1ch;
+		}
 
-        &.offset-3-chars {
-            left: -2ch;
-        }
-    }
+		&.offset-3-chars {
+			left: -2ch;
+		}
+	}
 
-    .symbol+.digit {
-        margin-top: -1.5ch;
-    }
+	.symbol + .digit {
+		margin-top: -1.5ch;
+	}
 
-    .equals {
-        border-top: rem(1px) solid $black;
-        color: transparent;
-        display: block;
-        margin-top: 0.5ch;
-        font-size: rem(2px);
-        width: 100%;
-    }
+	.equals {
+		border-top: rem(1px) solid $black;
+		color: transparent;
+		display: block;
+		margin-top: 0.5ch;
+		font-size: rem(2px);
+		width: 100%;
+	}
 }

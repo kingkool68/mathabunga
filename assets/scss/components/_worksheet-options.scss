@@ -1,42 +1,44 @@
+@use "base/_imports.scss" as *;
+
 .worksheet-options {
-    padding: rem(32px);
+	padding: rem(32px);
 
-    fieldset {
-        padding: rem(8px) 0;
-    }
+	fieldset {
+		padding: rem(8px) 0;
+	}
 
-    legend {
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: rem(12px);
-    }
+	legend {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: rem(12px);
+	}
 
-    label {
-        display: block;
-        margin-bottom: rem(4px);
-    }
+	label {
+		display: block;
+		margin-bottom: rem(4px);
+	}
 
-    select {
-        display: block;
-        // width: 100%;
-    }
+	select {
+		display: block;
+		// width: 100%;
+	}
 
-    .field {
-        padding: 0 rem(8px) rem(16px);
-    }
+	.field {
+		padding: 0 rem(8px) rem(16px);
+	}
 
-    .group {
-        display: flex;
-        gap: rem(16px);
-    }
+	.group {
+		display: flex;
+		gap: rem(16px);
+	}
 
-    .small-input {
-        width: 6ch;
-    }
+	.small-input {
+		width: 6ch;
+	}
 
-    .submit {
-        display: block;
-        margin: rem(16px) 0;
-        width: 100%;
-    }
+	.submit {
+		display: block;
+		margin: rem(16px) 0;
+		width: 100%;
+	}
 }

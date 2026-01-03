@@ -1,14 +1,16 @@
+@use "base/_imports.scss" as *;
+
 .main-content {
-    display: flex;
-    // flex-direction: row-reverse;
+	display: flex;
+	// flex-direction: row-reverse;
 
-    main {
-        margin: auto;
-    }
+	main {
+		margin: auto;
+	}
 
-    aside {
-        background-color: #ededed;
-        width: rem(320px);
-        min-height: 100vh;
-    }
+	aside {
+		background-color: #ededed;
+		width: rem(320px);
+		min-height: 100vh;
+	}
 }

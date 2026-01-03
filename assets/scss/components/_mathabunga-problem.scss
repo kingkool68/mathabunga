@@ -1,0 +1,79 @@
+@use "base/_imports.scss" as *;
+
+.worksheet-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+
+	&.is-horizontal {
+		grid-template-columns: repeat(2, 1fr); // Wider problems need more room
+	}
+}
+
+// Target the component based on the attribute
+mathabunga-problem {
+
+	.mathabunga-problem-inner {
+		display: inline-flex;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 2.8rem;
+		margin: 30px;
+		color: #000;
+	}
+
+	/* --- VERTICAL LAYOUT (Default) --- */
+	& {
+		.mathabunga-problem-inner {
+			flex-direction: column;
+			align-items: flex-end;
+			width: 100px;
+		}
+
+		.mathabunga-bottom {
+			border-bottom: 4px solid #000;
+			width: 100%;
+			text-align: right;
+			position: relative;
+			padding-bottom: 5px;
+			min-width: 80px;
+		}
+
+		.mathabunga-operator {
+			position: absolute;
+			left: 0;
+			bottom: 5px;
+			font-weight: bold;
+		}
+
+		.mathabunga-answer-space {
+			height: 60px;
+		}
+	}
+
+	/* --- HORIZONTAL LAYOUT --- */
+	&[layout="horizontal"] {
+		.mathabunga-problem-inner {
+			flex-direction: row;
+			align-items: center; // Align numbers and operator in a line
+			width: auto;
+			gap: 15px;
+		}
+
+		.mathabunga-bottom {
+			border-bottom: none; // No line under the number in horizontal mode
+			width: auto;
+			min-width: 0;
+		}
+
+		.mathabunga-operator {
+			position: static; // Put it back in the flex flow
+			margin-right: 5px;
+		}
+
+		.mathabunga-answer-space {
+			width: 80px;
+			height: auto;
+			border-bottom: 4px solid #000; // The line moves under the answer area
+		}
+	}
+}

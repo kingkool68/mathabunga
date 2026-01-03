@@ -1,4 +1,6 @@
+@use "base/_imports.scss" as *;
+
 body {
-    background-color: $dark-gray;
-    print-color-adjust: exact !important;
+	background-color: $dark-gray;
+	print-color-adjust: exact !important;
 }

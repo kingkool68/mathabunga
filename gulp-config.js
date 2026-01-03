@@ -7,35 +7,30 @@
  */
 
 module.exports = {
+	// Style options.
+	styleSRC: ['./assets/scss/**/*.scss'], // Path to main .scss file.
+	styleDestination: './assets/css/', // Path to place the compiled CSS file. Default set to root folder.
+	outputStyle: 'compressed', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
+	precision: 5,
+	loadPaths: ['./assets/scss'], // Tell Sass where to look for @import statements
 
-    // START Editing Project Variables.
-    // Project options.
-    project: 'Mathabunga', // Project Name.
-    productURL: './', // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
+	// JS Custom options.
+	scriptSRC: ['./**/*.src.js', '!./vendor/', '!./node_modules/'], // Globs of scripts to process.
+	scriptBase: './', // Path where the globs are considered to start.
+	scriptDest: './', // Path where we save the scripts back to.
 
-    // Style options.
-    styleSRC: ['./assets/scss/**/*.scss'], // Path to main .scss file.
-    styleDestination: './assets/css/', // Path to place the compiled CSS file. Default set to root folder.
-    outputStyle: 'compressed', // Available options → 'compact' or 'compressed' or 'nested' or 'expanded'
-    errLogToConsole: true,
-    precision: 10,
-    includePaths: ['./assets/scss'], // Tell Sass where to look for @import statements
+	// Watch files paths.
+	styleWatchFiles: ['./assets/scss/**/*.scss'], // *.scss files to watch changes and recompile
+	scriptWatchFiles: ['./assets/js/**/*.src.js'], // *.src.js files to watch changes and recompile
 
-    // JS Custom options.
-    scriptSRC: ['./**/*.src.js', '!./vendor/', '!./node_modules/'], // Globs of scripts to process.
-    scriptBase: './', // Path where the globs are considered to start.
-    scriptDest: './', // Path where we save the scripts back to.
+	filesToClean: [
+		'./assets/css/',
+		'./assets/js/**/*.js',
+		'./assets/js/**/*.map',
+		'!./assets/js/',
+		'!./assets/js/**/*.src.js',
+	],
 
-    // Watch files paths.
-    styleWatchFiles: ['./assets/scss/**/*.scss'], // *.scss files to watch changes and recompile
-    scriptWatchFiles: ['./assets/js/**/*.src.js'], // *.src.js files to watch changes and recompile
-
-    filesToClean: ['./assets/css/', './assets/js/**/*.js', '!./assets/js/', '!./assets/js/**/*.src.js'],
-
-    // Browsers you care about for autoprefixing. Browserlist https://github.com/ai/browserslist
-    BROWSERS_LIST: [
-        'last 10 versions',
-        'ie >= 6',
-        'Android >= 2.3'
-    ]
+	// Browsers you care about for autoprefixing. Browserlist https://github.com/browserslist/browserslist
+	BROWSERS_LIST: ['last 10 versions'],
 };

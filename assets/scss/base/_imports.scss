@@ -1,3 +1,3 @@
-@import 'base/_functions.scss';
-@import 'base/_variables.scss';
-@import 'base/_colors.scss';
+@forward 'base/_functions.scss';
+@forward 'base/_variables.scss';
+@forward 'base/_colors.scss';

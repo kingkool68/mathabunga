@@ -1,13 +1,45 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-	{% for page in pages %}
-		{{ page }}
-	{% endfor %}
+	<article>
+		<mathabunga-worksheet count="10" operations="subtraction,addition,multiplication"></mathabunga-worksheet>
+	</article>
 {% endblock %}
 
 {% block after_content %}
 	<aside>
-		{{ worksheet_options }}
+		<h2>Options</h2>
+
+		<label class="toggle-container">
+			<input type="checkbox" id="layoutToggle">
+			<span class="label-text">Horizontal Layout</span>
+		</label>
 	</aside>
+
+	<script>
+		// Example: Toggle the answer sheet
+		/*
+		const answerToggle = document.getElementById('showAnswers');
+		const worksheet = document.querySelector('mathabunga-worksheet');
+
+		answerToggle.addEventListener('change', (e) => {
+			if (e.target.checked) {
+				worksheet.setAttribute('show-answers', '');
+			} else {
+				worksheet.removeAttribute('show-answers');
+			}
+		});
+
+		// Example: Change operation types
+		const opCheckboxes = document.querySelectorAll('.op-check');
+		opCheckboxes.forEach(check => {
+			check.addEventListener('change', () => {
+				const active = Array.from(opCheckboxes)
+					.filter(i => i.checked)
+					.map(i => i.value);
+				worksheet.setAttribute('operations', active.join(','));
+			});
+		});
+		*/
+	</script>
 {% endblock %}

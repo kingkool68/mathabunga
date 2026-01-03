@@ -1,8 +1,12 @@
-@import 'base/_imports.scss';
+@forward 'base/_imports.scss';
 
-@import 'components/_reset.scss';
-@import 'components/_general.scss';
-@import 'components/_layout.scss';
-@import 'components/_page.scss';
-@import 'components/_worksheet-options.scss';
-@import 'components/_problems.scss';
+@use 'base/_imports.scss';
+
+@use 'components/_reset.scss';
+@use 'components/_general.scss';
+@use 'components/_layout.scss';
+@use 'components/_page.scss';
+@use 'components/_worksheet-options.scss';
+@use 'components/_problems.scss';
+
+@use 'components/mathabunga-problem.scss';
